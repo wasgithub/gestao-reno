@@ -1,0 +1,116 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Negócios do Cliente</nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="form" (ngSubmit)="save()">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="inputFullName"
+                        [class.active]="negocio.fullName"
+                        data-error="Name is required and needs to contain at least 3 chars">Nome do Cliente</label>
+                <input type="text" class="form-control" id="inputFullName" placeholder="Nome do Cliente" [(ngModel)]="negocio.name" formControlName="fullName" [class.invalid]="form.controls['fullName'].touched && !form.controls['fullName'].valid">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputDoc">CPF/CNPJ</label>
+                <input type="text" class="form-control" id="inputDoc" placeholder="CPF/CNPJ" [(ngModel)]="negocio.document" formControlName="doc">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputBirthdate">Data Nascimento</label>
+                <input type="date" class="form-control" id="inputBirthdate" placeholder="Data Nascimento" [(ngModel)]="negocio.birthdate" formControlName="birthdate">
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="selectContatado">Contatado</label>
+                <select class="form-control" id="selectContatado" [(ngModel)]="negocio.contacted" formControlName="contatado">
+                  <option>Sim</option>
+                  <option>Não</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email" [(ngModel)]="negocio.email" formControlName="email">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputTelCel">Tel/Cel</label>
+                <input type="text" class="form-control" id="inputTelCel" placeholder="Tel/Cel" [(ngModel)]="negocio.phone" formControlName="telCel">
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <div class="form-group">
+                <label for="selectOrigem">Origem</label>
+                <select class="form-control" id="selectOrigem" [(ngModel)]="negocio.origin" formControlName="origem">
+                  <option>Em negociação</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label for="selectEstado">Estado</label>
+                <select class="form-control" id="selectEstado" [(ngModel)]="negocio.state" formControlName="estado">
+                  <option>AC</option>
+                  <option>AL</option>
+                  <option>AP</option>
+                  <option>AM</option>
+                  <option>BA</option>
+                  <option>CE</option>
+                  <option>DF</option>
+                  <option>ES</option>
+                  <option>GO</option>
+                  <option>MA</option>
+                  <option>MT</option>
+                  <option>MS</option>
+                  <option>MG</option>
+                  <option>PA</option>
+                  <option>PB</option>
+                  <option>PR</option>
+                  <option>PE</option>
+                  <option>PI</option>
+                  <option>RJ</option>
+                  <option>RN</option>
+                  <option>RS</option>
+                  <option>RO</option>
+                  <option>RR</option>
+                  <option>SC</option>
+                  <option>SP</option>
+                  <option>SE</option>
+                  <option>TO</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <div class="form-group">
+                <label for="inputWebsite">Cidade</label>
+                <input type="text" class="form-control" id="inputWebsite" placeholder="Cidade" [(ngModel)]="negocio.city" formControlName="cidade">
+              </div>
+            </div>
+
+            <div class="col-sm-5">
+              <div class="form-group">
+                <label for="selectSituacao">Situação</label>
+                <select class="form-control" id="selectSituacao" [(ngModel)]="negocio.situation" formControlName="situacao">
+                  <option>Regular</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Salvar</button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

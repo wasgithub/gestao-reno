@@ -1,0 +1,32 @@
+{
+  "deals": [
+    {
+      "id": "0245A1C1-A204-417B-AD4C-E3E426B37932",
+      "employee": "6A6717BA-2C89-43A9-A4E6-04FCA353AB12",
+      "name": "Wesley",
+      "document": "123456",
+      "birthdate": "28/10/1982",
+      "email": "wesleysantana@outlook.com",
+      "phone": "(11) 98722-5863",
+      "city": "São Paulo",
+      "state": "SP",
+      "contacted": "NÃO",
+      "situation": "Regular",
+      "origin": "InNegociation"
+    },
+    {
+      "name": "Emili Santana",
+      "document": "011.366.281-50",
+      "birthdate": "1985-12-05",
+      "contacted": "Não",
+      "email": "santanaemili@gmail.com",
+      "phone": "(11) 96312-2479",
+      "origin": "Em negociação",
+      "state": "SP",
+      "city": "São Paulo",
+      "situation": "Regular",
+      "employee": "6a6717ba-2c89-43a9-a4e6-04fca353ab12",
+      "id": "G3SgIZ8"
+    }
+  ]
+}
