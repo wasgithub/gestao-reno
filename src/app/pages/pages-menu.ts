@@ -19,6 +19,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Negócios de Clientes',
         link: '/pages/clientes/negocios',
       },
+      {
+        title: 'Clientes',
+        link: '/pages/clientes/lista',
+      },
     ],
   },
   {

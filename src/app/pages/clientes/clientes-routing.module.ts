@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ClientesComponent } from './clientes.component';
 import { ClienteNegociosComponent } from './cliente-negocios/cliente-negocios.component';
+import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -10,7 +12,15 @@ const routes: Routes = [{
   children: [{
     path: 'negocios',
     component: ClienteNegociosComponent,
-  }],
+  },
+  {
+    path: 'lista',
+    component: ListaClientesComponent,
+  },
+  {
+    path: 'editar',
+    component: ClienteNegociosComponent,
+  }]
 }];
 
 @NgModule({
@@ -28,4 +38,5 @@ export class ClientesRoutingModule {
 export const routedComponents = [
   ClientesComponent,
   ClienteNegociosComponent,
+  ListaClientesComponent
 ];

@@ -25,3 +25,24 @@ $nb-themes: nb-register-theme((
   font-main: Roboto,
   font-secondary: Exo,
 ), cosmic, cosmic);
+
+
+.nb-theme-default ng2-smart-table .ng2-smart-actions ng2-st-tbody-edit-delete, .nb-theme-default ng2-smart-table .ng2-smart-actions ng2-st-tbody-create-cancel, .nb-theme-default ng2-smart-table .ng2-smart-actions ng2-st-actions, ng2-smart-action ng2-smart-action-custom-custom {
+  display: flex;
+  height: 100%;
+}
+
+tr td.ng2-smart-actions {
+  display: flex;
+}
+
+.ng2-smart-action-custom-custom {
+  padding-top: 0.8em;
+}
+.ng2-smart-action-delete-delete {
+  padding-top: 0.8em;
+}
+
+.ng2-smart-actions .ng2-smart-action-custom-custom:hover {
+  color: #ff4c6a !important;
+}
