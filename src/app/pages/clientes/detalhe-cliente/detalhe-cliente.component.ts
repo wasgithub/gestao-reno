@@ -3,6 +3,7 @@ import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NegocioDataService } from '../../../services/negocio-data.service';
+import { CustomerService } from '../../../@core/data/customer.service';
 import { Negocio } from '../../../shared/negocio';
 
 @Component({
@@ -13,13 +14,15 @@ import { Negocio } from '../../../shared/negocio';
 })
 export class DetalheClienteComponent implements OnInit {
 
-  @Input() hero: Negocio;
+  @Input() cliente: Negocio;
 
   form: FormGroup;
   negocio: Negocio = new Negocio();
   user = {};
 
   constructor(
+    private fakeService: CustomerService,
+    
     private route: ActivatedRoute,
 
     formBuilder: FormBuilder,
@@ -73,13 +76,11 @@ export class DetalheClienteComponent implements OnInit {
     this.getClient()
   }
 
-  getClient(): void {
+  getClient() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.negocioDataService.getDealById(id)
-
-      .subscribe(hero => this.hero = hero);
-      console.log(id);
-
+    this.user = this.fakeService.getDataByID(id);
+    console.log(this.user);
+    
   }
 
   save() {

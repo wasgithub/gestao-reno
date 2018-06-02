@@ -38,28 +38,28 @@ export class ListaClientesComponent {
     },
 
     columns: {
-      corretor: {
+      employee: {
         editable: false,
         title: 'Corretor',
         type: 'string',
       },
-      dataCadastro: {
+      birthdate: {
         title: 'Dt.Cadastro',
         type: 'string',
       },
-      cliente: {
+      name: {
         title: 'Cliente',
         type: 'string',
       },
-      cpfCnpj: {
+      document: {
         title: 'CPF/CNPJ',
         type: 'string',
       },
-      estado: {
+      state: {
         title: 'Estado',
         type: 'string',
       },
-      cidade: {
+      city: {
         title: 'Cidade',
         type: 'number',
       },
