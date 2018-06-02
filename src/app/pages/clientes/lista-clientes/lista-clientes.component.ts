@@ -3,6 +3,8 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { Router } from '@angular/router';
 
 import { CustomerService } from '../../../@core/data/customer.service';
+import { ApiService } from '../../../services/api.service';
+import { Negocio } from '../../../shared/negocio';
 
 
 @Component({
@@ -11,6 +13,10 @@ import { CustomerService } from '../../../@core/data/customer.service';
   styleUrls: ['./lista-clientes.component.scss']
 })
 export class ListaClientesComponent {
+
+  public items: Array<Negocio>;
+  public itemsTable: Array<any> = [];
+  public data: Array<any> = [];
 
   settings = {
     add: {
@@ -51,10 +57,6 @@ export class ListaClientesComponent {
         title: 'Cliente',
         type: 'string',
       },
-      document: {
-        title: 'CPF/CNPJ',
-        type: 'string',
-      },
       state: {
         title: 'Estado',
         type: 'string',
@@ -62,15 +64,39 @@ export class ListaClientesComponent {
       city: {
         title: 'Cidade',
         type: 'number',
+      }, 
+      contacted: {
+        title: 'Contatado',
+        type: 'string'
+      },
+      origin: {
+        title: 'Origem',
+        type: 'string'
+      },
+      situation: {
+        title: 'Situação',
+        type: 'string',
       },
     },
   };
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: CustomerService, private router: Router) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor(private service: CustomerService, private router: Router, private _api: ApiService) {
+
+  }
+
+  ngOnInit(): void {
+    const result = this._api.getAllDeals();
+    if (result) {
+      result.subscribe(dados => {
+        this.items = dados;
+        this.items.forEach(value => {
+          this.data.push(value);
+        });
+        this.source.load(this.data);
+      });
+    }
   }
 
   onDeleteConfirm(event): void {
