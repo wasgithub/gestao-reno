@@ -17,8 +17,8 @@ export class DetalheClienteComponent implements OnInit {
   @Input() cliente: Negocio;
 
   form: FormGroup;
-  negocio: Negocio = new Negocio();
-  user = {};
+  negocio: Negocio;
+  customer = {};
 
   constructor(
     private fakeService: CustomerService,
@@ -33,7 +33,7 @@ export class DetalheClienteComponent implements OnInit {
       this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
-          this.user = token.getPayload();
+          this.customer = token.getPayload();
         }
       });
 
@@ -78,20 +78,24 @@ export class DetalheClienteComponent implements OnInit {
 
   getClient() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.user = this.fakeService.getDataByID(id);
-    console.log(this.user);
-    
+    //this.user = this.negocioDataService.getDealById(id);
+    const result = this.negocioDataService.getDealById(id);
+    if (result) {
+      result.subscribe(dados => {
+        this.negocio = dados;
+      });
+    } 
   }
 
   save() {
-    var strUser = JSON.stringify(this.user);
+    var strUser = JSON.stringify(this.customer);
     var objUser = JSON.parse(strUser);
     this.negocio.employee = objUser.employee;
 
     alert(JSON.stringify(this.negocio));
 
     this.negocioDataService
-      .addDeal(this.negocio)
+      .updateDeal(this.negocio)
       .subscribe(
         data => this.router.navigate(['#'])
       );

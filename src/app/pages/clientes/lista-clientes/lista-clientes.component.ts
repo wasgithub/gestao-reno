@@ -44,17 +44,16 @@ export class ListaClientesComponent {
     },
 
     columns: {
-      employee: {
-        editable: false,
-        title: 'Corretor',
+      id: {
+        title: 'Id',
         type: 'string',
-      },
-      birthdate: {
-        title: 'Dt.Cadastro',
-        type: 'string',
-      },
+      }, 
       name: {
         title: 'Cliente',
+        type: 'string',
+      },      
+      birthdate: {
+        title: 'Dt.Cadastro',
         type: 'string',
       },
       state: {
@@ -67,11 +66,11 @@ export class ListaClientesComponent {
       }, 
       contacted: {
         title: 'Contatado',
-        type: 'string'
+        type: 'string',
       },
       origin: {
         title: 'Origem',
-        type: 'string'
+        type: 'string',
       },
       situation: {
         title: 'Situação',
