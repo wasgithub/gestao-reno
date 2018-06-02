@@ -9,18 +9,25 @@ import { ListaClientesComponent } from './lista-clientes/lista-clientes.componen
 const routes: Routes = [{
   path: '',
   component: ClientesComponent,
-  children: [{
+  children: [
+    {
+      path: '',
+      redirectTo: 'lista',
+      pathMatch: 'full',
+    }, 
+    {
     path: 'negocios',
     component: ClienteNegociosComponent,
-  },
-  {
-    path: 'lista',
-    component: ListaClientesComponent,
-  },
-  {
-    path: 'editar',
-    component: ClienteNegociosComponent,
-  }]
+    },
+    {
+      path: 'lista',
+      component: ListaClientesComponent,
+    },
+    {
+      path: 'editar',
+      component: ClienteNegociosComponent,
+    }
+  ]
 }];
 
 @NgModule({
