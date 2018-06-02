@@ -81,8 +81,11 @@ export class ListaClientesComponent {
     }
   }
 
-  route($event) {
-    this.router.navigate(['/pages/clientes/editar']) ;
+  route(event) {
+    console.log(event);
+    console.log(event.data.id)
+
+    this.router.navigate([`/pages/clientes/detalhe/${event.data.id}`]) ;
   }
 
 }

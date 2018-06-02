@@ -20,7 +20,7 @@ import { TextMaskModule } from 'angular2-text-mask';
 
   ],
   declarations: [
-    ...routedComponents
+    ...routedComponents,
   ],
   providers: [
     CustomerService,

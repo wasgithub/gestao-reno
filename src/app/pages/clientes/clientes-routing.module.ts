@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ClientesComponent } from './clientes.component';
 import { ClienteNegociosComponent } from './cliente-negocios/cliente-negocios.component';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
+import { DetalheClienteComponent } from './detalhe-cliente/detalhe-cliente.component';
 
 
 const routes: Routes = [{
@@ -26,6 +27,10 @@ const routes: Routes = [{
     {
       path: 'editar',
       component: ClienteNegociosComponent,
+    },
+    {
+      path: 'detalhe/:id',
+      component: DetalheClienteComponent,
     }
   ]
 }];
@@ -45,5 +50,6 @@ export class ClientesRoutingModule {
 export const routedComponents = [
   ClientesComponent,
   ClienteNegociosComponent,
-  ListaClientesComponent
+  ListaClientesComponent,
+  DetalheClienteComponent
 ];
