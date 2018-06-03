@@ -1,81 +1,56 @@
+
+
+
+
+
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { Router } from '@angular/router';
 
-import { CustomerService } from '../../../@core/data/customer.service';
-import { ApiService } from '../../../services/api.service';
-import { Negocio } from '../../../shared/negocio';
-import { NegocioDataService } from '../../../services/negocio-data.service';
+import { CustomerService } from '../../../../@core/data/customer.service';
+import { ApiService } from '../../../../services/api.service';
+import { Negocio } from '../../../../shared/negocio';
+import { NegocioDataService } from '../../../../services/negocio-data.service';
 
 
 @Component({
-  selector: 'lista-clientes',
-  templateUrl: './lista-clientes.component.html',
-  styleUrls: ['./lista-clientes.component.scss']
+  selector: 'lista-contatos',
+  templateUrl: './lista-contatos.component.html',
+  styleUrls: ['./lista-contatos.component.scss']
 })
-export class ListaClientesComponent {
+export class ListaContatosComponent {
 
   public items: Array<Negocio>;
   public itemsTable: Array<any> = [];
   public data: Array<any> = [];
 
   settings = {
+    actions: false,
     hideSubHeader: true,
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    actions: {
-      add: false,
-      edit: false, //as an example
-      custom: [{ name: 'edit', title: `<i class="nb-edit"></i>` }],
-      
-    },
-    filter: {
-      filter: false
-    },
-
     columns: {
-      id: {
-        title: 'Id',
+      
+      contactDate: {
+        title: 'Data Contato',
         type: 'string',
       }, 
-      name: {
-        title: 'Cliente',
+      employee: {
+        title: 'Corretor',
         type: 'string',
       },      
-      birthdate: {
-        title: 'Dt.Cadastro',
+      returnDate: {
+        title: 'Data Retorno',
         type: 'string',
       },
-      state: {
-        title: 'Estado',
+      totalValue: {
+        title: 'Valor Total',
         type: 'string',
       },
-      city: {
-        title: 'Cidade',
-        type: 'number',
+      offeredValue: {
+        title: 'Valor Ofertado',
+        type: 'string',
       }, 
-      contacted: {
-        title: 'Contatado',
-        type: 'string',
-      },
-      origin: {
-        title: 'Origem',
-        type: 'string',
-      },
-      situation: {
-        title: 'Situação',
+      feedback: {
+        title: 'Feedback',
         type: 'string',
       },
     },
@@ -104,7 +79,7 @@ export class ListaClientesComponent {
   }
 
   loadData() {
-    const result = this._api.getAllDeals('deals');
+    const result = this._api.getAllDeals('historico');
     if (result) {
       result.subscribe(dados => {
         this.items = dados;

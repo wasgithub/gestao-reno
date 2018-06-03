@@ -77,9 +77,10 @@ export class DetalheClienteComponent implements OnInit {
   }
 
   getClient() {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const idd = this.route.snapshot.paramMap.get('id');
     //this.user = this.negocioDataService.getDealById(id);
-    const result = this.negocioDataService.getDealById(id);
+    const result = this.negocioDataService.getDealById(idd);
+    console.log(result);
     if (result) {
       result.subscribe(dados => {
         this.negocio = dados;

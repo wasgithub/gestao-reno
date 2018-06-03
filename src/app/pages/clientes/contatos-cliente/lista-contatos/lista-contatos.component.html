@@ -1,0 +1,12 @@
+
+<nb-card>
+    <nb-card-header>
+      Cadastro de Clientes
+    </nb-card-header>
+    <nb-card-body>
+      <br>    
+      <ng2-smart-table (custom)="route($event)" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+  

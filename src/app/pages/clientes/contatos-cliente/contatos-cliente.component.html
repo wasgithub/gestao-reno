@@ -1,0 +1,50 @@
+<div class="row mt-4">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Contatos com Cliente</nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="form" (ngSubmit)="save()">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="inputBirthdate">Data Contato</label>
+                <input type="date" class="form-control" id="inputContactDate" [(ngModel)]="historico.contactDate" formControlName="contactDate">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="inputBirthdate">Data Retorno</label>
+                <input type="date" class="form-control" id="inputReturnDate" placeholder="Data Retorno" [(ngModel)]="historico.returnDate" formControlName="returnDate">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputTelCel">Valor Total</label>
+                <input type="text" class="form-control" id="inputTotalValue" placeholder="Valor Total" [(ngModel)]="historico.totalValue" formControlName="totalValue">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputTelCel">Valor Ofertado</label>
+                <input type="text" class="form-control" id="inputOfferedValue" placeholder="Valor Ofertado" [(ngModel)]="historico.offeredValue" formControlName="offeredValue">
+              </div>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-group">
+                <label for="inputTelCel">Feedback</label>
+                <input type="text" class="form-control" id="inputFeedback" placeholder="Feedback" [(ngModel)]="historico.feedback" formControlName="feedback">
+              </div>
+            </div>
+
+            <div class="col-sm-2 align-self-end">
+              <button type="submit" class="btn btn-primary active" [ngStyle]="{'margin-bottom': '18px', 'width': '100%'}">Adicionar</button>
+            </div>
+          </div>
+        </form>
+
+        <lista-contatos></lista-contatos>
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

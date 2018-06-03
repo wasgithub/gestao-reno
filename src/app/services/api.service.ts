@@ -17,9 +17,9 @@ export class ApiService {
 
   constructor(private http: Http) { }
 
-  public getAllDeals(): Observable<Negocio[]> {
+  public getAllDeals(param: string): Observable<Negocio[]> {
     return this.http
-      .get(API_URL + '/deals')
+      .get(`${API_URL}/${param}`)
       .map(response => {
         const deals = response.json();
         return deals.map((deal) => new Negocio(deal));
@@ -36,7 +36,7 @@ export class ApiService {
       .catch(this.handleError);
   }
 
-  public getDealById(dealId: number): Observable<Negocio> {
+  public getDealById(dealId: string): Observable<Negocio> {
     return this.http
       .get(API_URL + '/deals/' + dealId)
       .map(response => {
@@ -54,7 +54,7 @@ export class ApiService {
       .catch(this.handleError);
   }
 
-  public deleteDealById(dealId: number): Observable<null> {
+  public deleteDealById(dealId: string): Observable<null> {
     return this.http
       .delete(API_URL + '/deals/' + dealId)
       .map(response => null)

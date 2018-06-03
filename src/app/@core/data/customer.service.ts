@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/internal/Observable';
 export class CustomerService {
 
   data = [{
-    id: 1,
+    id: '1',
     employee: 'João da Silva',
     name: 'Mark',
     birthdate: '10/02/2018',
@@ -25,7 +25,7 @@ export class CustomerService {
     return this.data;
   }
 
-  getDataByID(id: number) {
+  getDataByID(id: string) {
     var client = this.data.filter(item => id === item.id);
     return client;
   }
