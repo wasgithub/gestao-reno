@@ -9,8 +9,6 @@ import { CustomerService } from '../../@core/data/customer.service';
 
 import { TextMaskModule } from 'angular2-text-mask';
 
-
-
 @NgModule({
   imports: [
     ThemeModule,

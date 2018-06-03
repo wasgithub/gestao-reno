@@ -5,7 +5,7 @@ import { ClientesComponent } from './clientes.component';
 import { ClienteNegociosComponent } from './cliente-negocios/cliente-negocios.component';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 import { DetalheClienteComponent } from './detalhe-cliente/detalhe-cliente.component';
-
+import { ContatosClienteComponent } from './contatos-cliente/contatos-cliente.component';
 
 const routes: Routes = [{
   path: '',
@@ -51,5 +51,6 @@ export const routedComponents = [
   ClientesComponent,
   ClienteNegociosComponent,
   ListaClientesComponent,
-  DetalheClienteComponent
+  DetalheClienteComponent,
+  ContatosClienteComponent
 ];
