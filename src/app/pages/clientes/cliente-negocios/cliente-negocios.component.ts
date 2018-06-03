@@ -16,6 +16,7 @@ export class ClienteNegociosComponent implements OnInit {
   form: FormGroup;
   negocio: Negocio = new Negocio();
   user = {};
+  pattern = '^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$';
 
   constructor(
     formBuilder: FormBuilder,

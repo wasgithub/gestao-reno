@@ -16,7 +16,14 @@
             <div class="col-sm-3">
               <div class="form-group">
                 <label for="inputDoc">CPF/CNPJ</label>
-                <input type="text" class="form-control" id="inputDoc" placeholder="CPF/CNPJ" [(ngModel)]="negocio.document" formControlName="doc">
+                <custom-input
+                  name="inputDoc"
+                  [(ngModel)]="negocio.document"
+                  c-label="CPF"
+                  c-mask="999.999.999-99"
+                  c-placeholder="999.999.999-99"
+                  formControlName="doc">
+                </custom-input>                
               </div>
             </div>
             <div class="col-sm-3">
@@ -39,13 +46,30 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email" [(ngModel)]="negocio.email" formControlName="email">
+                <!-- <custom-input
+                  class="thf-lg-6"
+                  name="inputEmail"
+                  [(ngModel)]="negocio.email"
+                  c-type="email"
+                  c-label="Email"
+                  c-pattern="pattern"
+                  c-placeholder="example@domain.com"
+                  formControlName="email">
+                </custom-input>                 -->
+                <input type="email" class="form-control" id="inputEmail" placeholder="example@domain.com" [(ngModel)]="negocio.email" formControlName="email">
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
                 <label for="inputTelCel">Tel/Cel</label>
-                <input type="text" class="form-control" id="inputTelCel" placeholder="Tel/Cel" [(ngModel)]="negocio.phone" formControlName="telCel">
+                <custom-input
+                  name="inputTelCel"
+                  [(ngModel)]="negocio.phone"
+                  c-label="Phone number"
+                  c-mask="(99) 99999-9999"
+                  c-placeholder="(99) 99999-9999"
+                  formControlName="telCel">
+                </custom-input>
               </div>
             </div>
             <div class="col-sm-5">
