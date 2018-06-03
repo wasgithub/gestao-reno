@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CustomerService } from '../../../@core/data/customer.service';
 import { ApiService } from '../../../services/api.service';
 import { Negocio } from '../../../shared/negocio';
+import { NegocioDataService } from '../../../services/negocio-data.service';
 
 
 @Component({
@@ -81,7 +82,10 @@ export class ListaClientesComponent {
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: CustomerService, private router: Router, private _api: ApiService) {
+  constructor(private service: CustomerService,
+              private router: Router,
+              private _api: ApiService,
+              private negocioDataService: NegocioDataService) {
 
   }
 
@@ -92,6 +96,7 @@ export class ListaClientesComponent {
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();
+      this.delete(event.data.id);
     } else {
       event.confirm.reject();
     }
@@ -116,6 +121,15 @@ export class ListaClientesComponent {
 
     this.router.navigate([`/pages/clientes/detalhe/${event.data.id}`]) ;
   }
+
+  delete(id) {
+    console.log(id);
+    this.negocioDataService
+    .deleteDealById(id)
+    .subscribe(
+      data => this.router.navigate([`/pages/clientes/lista`])
+    );
+  }  
 
 }
 
