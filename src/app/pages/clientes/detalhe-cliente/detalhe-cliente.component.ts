@@ -87,7 +87,7 @@ export class DetalheClienteComponent implements OnInit {
     } 
   }
 
-  save() {
+  update() {
     var strUser = JSON.stringify(this.customer);
     var objUser = JSON.parse(strUser);
     this.negocio.employee = objUser.employee;
@@ -99,5 +99,14 @@ export class DetalheClienteComponent implements OnInit {
       .subscribe(
         data => this.router.navigate(['#'])
       );
+  }
+
+  delete() {
+    console.log(this.negocio.id);
+    this.negocioDataService
+    .deleteDealById(this.negocio.id)
+    .subscribe(
+      data => this.router.navigate([`/pages/clientes/lista`])
+    );
   }
 }

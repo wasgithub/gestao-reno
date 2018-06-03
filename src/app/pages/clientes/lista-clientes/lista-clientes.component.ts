@@ -86,6 +86,18 @@ export class ListaClientesComponent {
   }
 
   ngOnInit(): void {
+    this.loadData()
+  }
+
+  onDeleteConfirm(event): void {
+    if (window.confirm('Are you sure you want to delete?')) {
+      event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  loadData() {
     const result = this._api.getAllDeals();
     if (result) {
       result.subscribe(dados => {
@@ -95,15 +107,7 @@ export class ListaClientesComponent {
         });
         this.source.load(this.data);
       });
-    }
-  }
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+    }    
   }
 
   route(event) {

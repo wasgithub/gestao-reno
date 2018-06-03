@@ -1,19 +1,6 @@
 {
   "deals": [
     {
-      "id": "1",
-      "name": "Wesley",
-      "document": "32646575801",
-      "birthdate": "28/10/1982",
-      "email": "wesleysantana@outlook.com",
-      "phone": "11987225863",
-      "city": "São Paulo",
-      "state": "SP",
-      "contacted": "Não",
-      "situation": "Regular",
-      "origin": "Em negociação"
-    },
-    {
       "name": "Emili Santana",
       "document": "32646575801",
       "birthdate": "1985-12-05",
@@ -24,7 +11,6 @@
       "state": "SP",
       "city": "São Paulo",
       "situation": "Regular",
-      "employee": "6a6717ba-2c89-43a9-a4e6-04fca353ab12",
       "id": "2"
     },
     {
@@ -54,15 +40,6 @@
       "id": "4"
     },
     {
-      "id": "5"
-    },
-    {
-      "id": "6"
-    },
-    {
-      "id": "7"
-    },
-    {
       "name": "JAO",
       "document": "7777",
       "birthdate": "0077-07-07",
@@ -74,19 +51,6 @@
       "city": "barueri",
       "situation": "Regular",
       "id": "8"
-    },
-    {
-      "name": "CAMILA FERREIRA",
-      "document": "8787878787878787",
-      "birthdate": "2018-06-07",
-      "contacted": "Sim",
-      "email": "camila.ferreira@kjklj",
-      "phone": "99999",
-      "origin": "Em negociação",
-      "state": "SP",
-      "city": "barueri",
-      "situation": "Regular",
-      "id": "BEOt~W~"
     }
   ]
 }
