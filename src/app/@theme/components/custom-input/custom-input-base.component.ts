@@ -1,7 +1,7 @@
 import { AfterContentChecked, EventEmitter, Input, Output } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, Validator } from '@angular/forms';
 
-import { convertToBoolean } from '../../utils/util';
+import { convertToBoolean } from '../utils/util';
 import { requiredFailed, maxlengthFailed, minlengthFailed, patternFailed } from './../validators';
 import { CustomMask } from './custom-mask';
 

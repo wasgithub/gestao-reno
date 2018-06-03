@@ -39,6 +39,7 @@ import {
 } from './layouts';
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
+import { CustomInputComponent, } from './components/custom-input/custom-input.component'
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
@@ -65,6 +66,7 @@ const COMPONENTS = [
   ThemeSwitcherComponent,
   HeaderComponent,
   FooterComponent,
+  CustomInputComponent,
   SearchInputComponent,
   ThemeSettingsComponent,
   OneColumnLayoutComponent,
