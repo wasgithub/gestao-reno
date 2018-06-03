@@ -25,61 +25,32 @@ export class ListaContatosComponent {
   public data: Array<any> = [];
 
   settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    actions: {
-      add: false,
-      edit: false, //as an example
-      custom: [{ name: 'edit', title: `<i class="nb-edit"></i>` }],
-      
-    },
-    filter: {
-      filter: false
-    },
-
+    actions: false,
+    hideSubHeader: true,
     columns: {
-      id: {
-        title: 'Id',
+      
+      contactDate: {
+        title: 'Data Contato',
         type: 'string',
       }, 
-      name: {
-        title: 'Cliente',
+      employee: {
+        title: 'Corretor',
         type: 'string',
       },      
-      birthdate: {
-        title: 'Dt.Cadastro',
+      returnDate: {
+        title: 'Data Retorno',
         type: 'string',
       },
-      state: {
-        title: 'Estado',
+      totalValue: {
+        title: 'Valor Total',
         type: 'string',
       },
-      city: {
-        title: 'Cidade',
-        type: 'number',
+      offeredValue: {
+        title: 'Valor Ofertado',
+        type: 'string',
       }, 
-      contacted: {
-        title: 'Contatado',
-        type: 'string',
-      },
-      origin: {
-        title: 'Origem',
-        type: 'string',
-      },
-      situation: {
-        title: 'Situação',
+      feedback: {
+        title: 'Feedback',
         type: 'string',
       },
     },
@@ -108,7 +79,7 @@ export class ListaContatosComponent {
   }
 
   loadData() {
-    const result = this._api.getAllDeals();
+    const result = this._api.getAllDeals('historico');
     if (result) {
       result.subscribe(dados => {
         this.items = dados;

@@ -20,6 +20,7 @@ export class ListaClientesComponent {
   public data: Array<any> = [];
 
   settings = {
+    hideSubHeader: true,
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -103,7 +104,7 @@ export class ListaClientesComponent {
   }
 
   loadData() {
-    const result = this._api.getAllDeals();
+    const result = this._api.getAllDeals('deals');
     if (result) {
       result.subscribe(dados => {
         this.items = dados;

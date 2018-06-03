@@ -27,7 +27,7 @@ export class NegocioDataService {
 
   // Simulate GET /deals
   getAllDeals(): Observable<Negocio[]> {
-    return this.api.getAllDeals();
+    return this.api.getAllDeals('deals');
   }
 
   // Simulate GET /deals/:id

@@ -17,9 +17,9 @@ export class ApiService {
 
   constructor(private http: Http) { }
 
-  public getAllDeals(): Observable<Negocio[]> {
+  public getAllDeals(param: string): Observable<Negocio[]> {
     return this.http
-      .get(API_URL + '/deals')
+      .get(`${API_URL}/${param}`)
       .map(response => {
         const deals = response.json();
         return deals.map((deal) => new Negocio(deal));
