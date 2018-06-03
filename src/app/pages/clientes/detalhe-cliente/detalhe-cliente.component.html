@@ -3,7 +3,7 @@
     <nb-card>
       <nb-card-header>Negócios do Cliente</nb-card-header>
       <nb-card-body>
-        <form [formGroup]="form" (ngSubmit)="save()">
+        <form [formGroup]="form" (ngSubmit)="update()">
           <div class="row">
             <div class="col-sm-4">
               <div class="form-group">
@@ -111,7 +111,8 @@
 
           <div class="btn-group btn-group-toggle btn-outline-toggle-group btn-toggle-radio-group ng-untouched ng-pristine ng-valid">
 
-            <button type="submit" class="btn btn-primary active" [disabled]="!form.valid">Salvar</button>
+            <button type="submit" class="btn btn-primary active" [disabled]="!form.valid">Atualizar</button>
+            <button class="btn btn-secondary btn-demo" routerLink="/pages/clientes/lista" (click)="delete()" >Deletar</button>
             <button type="submit" class="btn btn-secondary btn-demo" routerLink="/pages/clientes/lista">Voltar</button>
             
           </div>

@@ -1,0 +1,26 @@
+
+<nb-card>
+  <nb-card-header>
+    Cadastro de Clientes
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-primary" routerLink="/pages/clientes/negocios">Novo Cliente</button>
+      </div>
+      <div class="col-md-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-append">
+            <button class="btn btn-primary input-group-text">
+                Busca
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <br>    
+    <ng2-smart-table (custom)="route($event)" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

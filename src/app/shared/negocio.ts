@@ -1,5 +1,5 @@
 export class Negocio {
-    id: string;
+    id: number;
     employee: string;
     name: string;
     document: string;
