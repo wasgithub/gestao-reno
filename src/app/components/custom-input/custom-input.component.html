@@ -1,0 +1,12 @@
+<input #inp
+    [type]="type"
+    class="thf-input"
+    (input)="eventOnInput($event)"
+    (focus)="eventOnFocus($event)"
+    (blur)="eventOnBlur($event)"
+    (click)="eventOnClick($event)"
+    [attr.name]="name"
+    [placeholder]="placeholder"
+    [required]="required"
+    [disabled]="disabled"
+    [readonly]="readonly">
