@@ -1,5 +1,5 @@
 export class Historico {
-    id: number;
+    id: string;
     contactDate: string;
     returnDate: string;
     totalValue: string;

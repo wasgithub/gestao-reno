@@ -53,14 +53,6 @@
       "id": "8"
     },
     {
-<<<<<<< HEAD
-      "contactDate": "1222-12-12",
-      "returnDate": "1222-12-12",
-      "totalValue": "1221",
-      "offeredValue": "1212",
-      "feedback": "12112121212121",
-      "id": "NA5dsWR"
-=======
       "name": "fdfd",
       "document": "fdfd",
       "birthdate": "2018-06-04",
@@ -97,7 +89,19 @@
       "city": "FDFDFD",
       "situation": "Regular",
       "id": "11"
->>>>>>> master
+    },
+    {
+      "name": "teste",
+      "document": "12121212121",
+      "birthdate": "1222-12-12",
+      "contacted": "Sim",
+      "email": "sdsfdsfsd",
+      "phone": "11111111111",
+      "origin": "Em negociação",
+      "state": "AP",
+      "city": "xcvvcx",
+      "situation": "Regular",
+      "id": "H7HFTuX"
     }
   ]
 }

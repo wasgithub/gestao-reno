@@ -36,7 +36,7 @@ export class ApiService {
       .catch(this.handleError);
   }
 
-  public getDealById(dealId: number): Observable<Negocio> {
+  public getDealById(dealId: string): Observable<Negocio> {
     return this.http
       .get(API_URL + '/deals/' + dealId)
       .map(response => {
@@ -54,7 +54,7 @@ export class ApiService {
       .catch(this.handleError);
   }
 
-  public deleteDealById(dealId: number): Observable<null> {
+  public deleteDealById(dealId: string): Observable<null> {
     return this.http
       .delete(API_URL + '/deals/' + dealId)
       .map(response => null)

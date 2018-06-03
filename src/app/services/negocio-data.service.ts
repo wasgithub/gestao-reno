@@ -16,7 +16,7 @@ export class NegocioDataService {
   }
 
   // Simulate DELETE /deals/:id
-  deleteDealById(dealId: number): Observable<Negocio> {
+  deleteDealById(dealId: string): Observable<Negocio> {
     return this.api.deleteDealById(dealId);
   }
 
@@ -31,7 +31,7 @@ export class NegocioDataService {
   }
 
   // Simulate GET /deals/:id
-  getDealById(dealId: number): Observable<Negocio> {
+  getDealById(dealId: string): Observable<Negocio> {
     return this.api.getDealById(dealId);
   }
 }
