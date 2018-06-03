@@ -11,7 +11,7 @@ export class NegocioDataService {
   constructor(private api: ApiService) { }
 
   // Simulate POST /deals
-  addDeal(deal: Negocio): Observable<Negocio> {
+  addDeal(deal: any): Observable<Negocio> {
     return this.api.createDeal(deal);
   }
 
@@ -21,7 +21,7 @@ export class NegocioDataService {
   }
 
   // Simulate PUT /deals/:id
-  updateDeal(deal: Negocio): Observable<Negocio> {
+  updateDeal(deal: any): Observable<Negocio> {
     return this.api.updateDeal(deal);
   }
 
