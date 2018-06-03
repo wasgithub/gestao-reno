@@ -27,10 +27,13 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
     private _placeholder?: string = '';
 
     /** Rótulo do campo. */
-    @Input('t-label') label?: string;
+    @Input('c-formControlName') formControlName?: string;
+
+    /** Rótulo do campo. */
+    @Input('c-label') label?: string;
 
     /** Texto de apoio do campo. */
-    @Input('t-help') help?: string;
+    @Input('c-help') help?: string;
 
     /** Nome e identificador do campo. */
     @Input('name') name: string;
@@ -44,7 +47,7 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
      *
      * @default ''
      **/
-    @Input('t-placeholder') set placeholder(value: string) {
+    @Input('c-placeholder') set placeholder(value: string) {
       this._placeholder = value || '';
     }
     get placeholder() {
@@ -59,7 +62,7 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
      * @default `false`
      */
     disabled?: boolean = false;
-    @Input('t-disabled') set setDisabled(disabled: string) {
+    @Input('c-disabled') set setDisabled(disabled: string) {
       this.disabled = disabled === '' ? true : convertToBoolean(disabled);
 
       this.updateModelToValidate();
@@ -67,7 +70,7 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
 
     /** Indica que o campo será somente leitura. */
     readonly?: boolean = false;
-    @Input('t-readonly') set setReadonly(readonly: string) {
+    @Input('c-readonly') set setReadonly(readonly: string) {
       this.readonly = readonly === '' ? true : convertToBoolean(readonly);
     }
 
@@ -76,12 +79,12 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
      *
      * Indica que o campo será obrigatório.
      *
-     * > Esta propriedade é desconsiderada quando o input está desabilitado `(t-disabled)`.
+     * > Esta propriedade é desconsiderada quando o input está desabilitado `(c-disabled)`.
      *
      * @default `false`
      */
     required?: boolean = false;
-    @Input('t-required') set setRequired(required: string) {
+    @Input('c-required') set setRequired(required: string) {
       this.required = required === '' ? true : convertToBoolean(required);
 
       this.updateModelToValidate();
@@ -89,13 +92,13 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
 
     /** Se verdadeiro, o campo iniciará com foco. */
     focus?: boolean = false;
-    @Input('t-focus') set setFocus(focus: string) {
+    @Input('c-focus') set setFocus(focus: string) {
       this.focus = focus === '' ? true : convertToBoolean(focus);
     }
 
     /** Se verdadeiro, o campo receberá um botão para ser limpo. */
     clean?: boolean = false;
-    @Input('t-clean') set setClean(clean: string) {
+    @Input('c-clean') set setClean(clean: string) {
       this.clean = clean === '' ? true : convertToBoolean(clean);
     }
 
@@ -103,11 +106,11 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
      * @description
      *
      * Expressão regular para validar o campo.
-     * Quando o campo possuir uma máscara `(t-mask)` será automaticamente validado por ela, porém
-     * é possível definir um t-pattern para substituir a validação da máscara.
+     * Quando o campo possuir uma máscara `(c-mask)` será automaticamente validado por ela, porém
+     * é possível definir um c-pattern para substituir a validação da máscara.
      */
     pattern?: string;
-    @Input('t-pattern') set setPattern(pattern: string) {
+    @Input('c-pattern') set setPattern(pattern: string) {
       this.pattern = pattern;
 
       this.updateModelToValidate();
@@ -120,11 +123,11 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
      *
      * > Esta mensagem não é apresentada quando o campo estiver vazio, mesmo que ele seja requerido.
      */
-    @Input('t-error-pattern') errorPattern?: string = '';
+    @Input('c-error-pattern') errorPattern?: string = '';
 
     /** Indica a quantidade máxima de caracteres que o campo aceita. */
     maxlength?: number;
-    @Input('t-maxlength') set setMaxlength(maxlength: string) {
+    @Input('c-maxlength') set setMaxlength(maxlength: string) {
       if (!isNaN(parseInt(maxlength, 10))) {
         this.maxlength = parseInt(maxlength, 10);
 
@@ -138,7 +141,7 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
 
     /** Indica a quantidade mínima de caracteres que o campo aceita. */
     minlength?: number;
-    @Input('t-minlength') set setMinlength(minlength: string) {
+    @Input('c-minlength') set setMinlength(minlength: string) {
       if (!isNaN(parseInt(minlength, 10))) {
         this.minlength = parseInt(minlength, 10);
 
@@ -155,12 +158,12 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
      *
      * Indica uma máscara para o campo. Exemplos: (+99) (99) 99999?-9999, 99999-999, 999.999.999-99.
      * A máscara gera uma validação automática do campo, podendo esta ser substituída por um REGEX específico
-     * através da propriedade t-pattern.
+     * através da propriedade c-pattern.
      * O campo será sinalizado e o formulário ficará inválido quando o valor informado estiver fora do padrão definido,
      * mesmo quando desabilitado.
      */
     mask?: string = '';
-    @Input('t-mask') set setMask(mask: string) {
+    @Input('c-mask') set setMask(mask: string) {
       this.mask = mask;
 
       // Atualiza Máscara do Campo
@@ -177,7 +180,7 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
      * @default `false`
      */
     maskFormatModel?: boolean = false;
-    @Input('t-mask-format-model') set setMaskFormatModel(maskFormatModel: string) {
+    @Input('c-mask-formac-model') set setMaskFormatModel(maskFormatModel: string) {
       this.maskFormatModel = maskFormatModel === '' ? true : convertToBoolean(maskFormatModel);
 
       if (this.objMask instanceof CustomMask) {
@@ -188,16 +191,16 @@ export abstract class CustomInputBaseComponent implements AfterContentChecked, C
     }
 
     /** Evento disparado ao sair do campo. */
-    @Output('t-blur') blur?: EventEmitter<any> = new EventEmitter();
+    @Output('c-blur') blur?: EventEmitter<any> = new EventEmitter();
 
     /** Evento disparado ao entrar do campo. */
-    @Output('t-enter') enter?: EventEmitter<any> = new EventEmitter();
+    @Output('c-enter') enter?: EventEmitter<any> = new EventEmitter();
 
     /** Evento disparado ao alterar valor e deixar o campo. */
-    @Output('t-change') change?: EventEmitter<any> = new EventEmitter();
+    @Output('c-change') change?: EventEmitter<any> = new EventEmitter();
 
     /** Evento disparado ao alterar valor do model. */
-    @Output('t-change-model') changeModel?: EventEmitter<any> = new EventEmitter();
+    @Output('c-change-model') changeModel?: EventEmitter<any> = new EventEmitter();
 
     type: string;
 
