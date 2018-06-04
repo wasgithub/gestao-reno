@@ -69,11 +69,11 @@ export class ClienteNegociosComponent implements OnInit {
   ngOnInit() {
   }
 
-  save() {
+  save(form) {
     var strUser = JSON.stringify(this.user);
     var objUser = JSON.parse(strUser);
     this.negocio.employee = objUser.employee;
-
+    console.log(form);
     alert(JSON.stringify(this.negocio));
 
     this.negocioDataService

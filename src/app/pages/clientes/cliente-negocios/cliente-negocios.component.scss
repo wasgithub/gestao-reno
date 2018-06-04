@@ -19,3 +19,13 @@
     padding-bottom: 0;
   }
 }
+
+.ng-invalid.ng-touched:not(form) {
+  border: 1px solid #ce4844;
+}
+
+custom-input.ng-invalid.ng-dirty .custom-input {
+  border: solid 1px red;
+  outline: none;
+  color: red;
+}

@@ -3,27 +3,30 @@
     <nb-card>
       <nb-card-header>Negócios do Cliente</nb-card-header>
       <nb-card-body>
-        <form [formGroup]="form" (ngSubmit)="save()">
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="save(f)">
           <div class="row">
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="inputFullName"
                         [class.active]="negocio.fullName"
                         data-error="Name is required and needs to contain at least 3 chars">Nome do Cliente</label>
-                <input type="text" class="form-control" id="inputFullName" placeholder="Nome do Cliente" [(ngModel)]="negocio.name" formControlName="fullName" [class.invalid]="form.controls['fullName'].touched && !form.controls['fullName'].valid">
+                <input type="text" required class="form-control" id="inputFullName" placeholder="Nome do Cliente" [(ngModel)]="negocio.name" formControlName="fullName" [class.invalid]="form.controls['fullName'].touched && !form.controls['fullName'].valid">
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
                 <label for="inputDoc">CPF/CNPJ</label>
-                <custom-input
+                <input type="text" required class="form-control" id="inputDoc" placeholder="999.999.999-99/ 99.999.999/9999-99" [(ngModel)]="negocio.document" formControlName="doc">
+                <!-- <custom-input 
+                  class="teste"
                   name="inputDoc"
                   [(ngModel)]="negocio.document"
                   c-label="CPF"
                   c-mask="999.999.999-99"
                   c-placeholder="999.999.999-99"
-                  formControlName="doc">
-                </custom-input>                
+                  formControlName="doc"
+                  c-required>
+                </custom-input>                 -->
               </div>
             </div>
             <div class="col-sm-3">
@@ -46,30 +49,21 @@
             <div class="col-sm-4">
               <div class="form-group">
                 <label for="inputEmail">Email</label>
-                <!-- <custom-input
-                  class="thf-lg-6"
-                  name="inputEmail"
-                  [(ngModel)]="negocio.email"
-                  c-type="email"
-                  c-label="Email"
-                  c-pattern="pattern"
-                  c-placeholder="example@domain.com"
-                  formControlName="email">
-                </custom-input>                 -->
-                <input type="email" class="form-control" id="inputEmail" placeholder="example@domain.com" [(ngModel)]="negocio.email" formControlName="email">
+                <input type="email" email class="form-control" id="inputEmail" placeholder="example@domain.com" [(ngModel)]="negocio.email" formControlName="email">
               </div>
             </div>
             <div class="col-sm-3">
               <div class="form-group">
                 <label for="inputTelCel">Tel/Cel</label>
-                <custom-input
+                <input type="text" required class="form-control" id="inputTelCel" placeholder="Tel/Cel" [(ngModel)]="negocio.phone" formControlName="telCel">
+                <!-- <custom-input
                   name="inputTelCel"
                   [(ngModel)]="negocio.phone"
                   c-label="Phone number"
                   c-mask="(99) 99999-9999"
                   c-placeholder="(99) 99999-9999"
                   formControlName="telCel">
-                </custom-input>
+                </custom-input> -->
               </div>
             </div>
             <div class="col-sm-5">
